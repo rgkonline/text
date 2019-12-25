@@ -1,0 +1,1040 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0058)http://portal.tes.rbsgrp.mde/Portal/testplan.aspx?mtr=4525 -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head id="ctl00_Head1"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>
+	Test Environment Services Portal
+</title><meta http-equiv="X-UA-Compatible" content="IE=edge"><link rel="stylesheet" href="./testplans_files/megamenu.css" type="text/css" media="screen"><link rel="stylesheet" href="./testplans_files/allcss.css" type="text/css" media="screen"><link rel="stylesheet" href="./testplans_files/tesportal.css" type="text/css" media="screen"><link rel="stylesheet" href="./testplans_files/search.css" type="text/css" media="screen"><link rel="Stylesheet" href="./testplans_files/portal.css" type="text/css"><link rel="Stylesheet" href="./testplans_files/insite.css" type="text/css"><link rel="stylesheet" href="./testplans_files/search.css" type="text/css" media="screen"><link rel="stylesheet" href="./testplans_files/jquery-ui.css" type="text/css"><link rel="stylesheet" href="./testplans_files/searchstyle.css" type="text/css">
+    <script type="text/javascript" src="./testplans_files/jquery-1.12.4.js.download"></script>
+    <script type="text/javascript" src="./testplans_files/jquery-ui.js.download"></script>
+    <script type="text/javascript" src="./testplans_files/megamenu.js.download"></script>
+    <script type="text/javascript" src="./testplans_files/search.js.download"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            Search();
+        });
+    </script>
+    
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+            // MULTIPLE "ID's" ARE SEPARATED BY COMMAS.
+            $('#ctl00_cphcontent_txtRBS').keypress(function (event) {
+                return isNumber(event);
+            });
+            $('#ctl00_cphcontent_txtNWB').keypress(function (event) {
+                return isNumber(event);
+            });
+            $('#ctl00_cphcontent_txtUBN').keypress(function (event) {
+                return isNumber(event);
+            });
+            $('#ctl00_cphcontent_txtUBR').keypress(function (event) {
+                return isNumber(event);
+            });
+            $(".calculate").each(function () {
+                $(this).keyup(function () {
+                    var total = 0;
+                    $(".calculate").each(function () {
+                        if (!isNaN(this.value) && this.value.length != 0) {
+                            total += parseInt(this.value, 10);
+                        }
+                    });
+                    $('#ctl00_cphcontent_txtTotal').val(total.toFixed(0));
+                });
+            });
+        });
+
+        function TogglePanel(websphere, pnlDetails) {
+
+            if (websphere.checked == 1) {
+                pnlDetails.style.display = 'block';
+                document.getElementById('ctl00_cphcontent_webspherecomp').style.display = 'block';
+            }
+            else {
+                document.getElementById('ctl00_cphcontent_webspherecomp').style.display = 'none';
+                pnlDetails.style.display = 'none';
+
+                var websphere = document.getElementById('ctl00_cphcontent_phwebspheredetails')
+                var chkwebsphere = websphere.getElementsByTagName("input");
+                for (var j = 0; j < chkwebsphere.length; j++) {
+                    chkwebsphere[j].checked = false;
+                }
+            }
+        }
+        //CICS - CHECKED
+        function ToggleCICSPanel(cicschecked, pnlcicsregion) {
+            if (cicschecked.checked == 1) {
+                pnlcicsregion.style.display = 'block';
+            }
+            else {
+                pnlcicsregion.style.display = 'none';
+            }
+        }
+        // THE SCRIPT THAT CHECKS IF THE KEY PRESSED IS A NUMERIC OR DECIMAL VALUE.
+        function isNumber(evt) {
+            var regex = new RegExp("^[0-9]+$");
+            var str = String.fromCharCode(!evt.charCode ? evt.which : evt.charCode);
+            if (regex.test(str)) {
+                return true;
+            }
+            else {
+                evt.preventDefault();
+                return false;
+            }
+        }
+        function validateContactName(source, arguments) {
+            var txtcontactname = document.getElementById("ctl00_cphcontent_txtcontactname");
+            arguments.IsValid = (txtcontactname.value.replace(/\s/g, "").toLowerCase() != arguments.Value.replace(/\s/g, "").toLowerCase());
+        }
+        function validateRacfId(source, arguments) {
+            var txtcontactname = document.getElementById("ctl00_cphcontent_txtcontactracfid");
+            arguments.IsValid = (txtcontactname.value.replace(/\s/g, "").toLowerCase() != arguments.Value.replace(/\s/g, "").toLowerCase());
+        }
+    </script>
+</head>
+<body>
+    <form name="aspnetForm" method="post" action="http://portal.tes.rbsgrp.mde/Portal/testplan.aspx?mtr=4525" onsubmit="javascript:return WebForm_OnSubmit();" id="aspnetForm">
+<div>
+<input type="hidden" name="ctl00_cphcontent_ScriptManager1_HiddenField" id="ctl00_cphcontent_ScriptManager1_HiddenField" value=";;AjaxControlToolkit, Version=3.5.51116.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e:en-US:2a06c7e2-728e-4b15-83d6-9b269fb7261e:475a4ef5:5546a2b:497ef277:effe2a26:a43b07eb:1d3ed089:d2e10b12:37e2e5c9:751cdd15:dfad98a5:3cf12cf1">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
+<input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJLTUyMzQ5ODc4D2QWAmYPZBYCAgMPZBYEAgMPZBYCAgEPZBYEAgEPFgIeBFRleHQFJTxoND5URVMgLSBTdWJtaXQgYSBOZXcgVGVzdCBQbGFuPC9oND5kAgMPFgIfAAV1PGg1IGNsYXNzPSJhbHQiIHN0eWxlPSJjb2xvcjojMDAyNDY5OyI+PGEgc3R5bGU9ImNvbG9yOiMwMDI0Njk7IiBocmVmPSJlbnZpcm9ubWVudC5hc3B4P210cj00NTI1Ij5NVFIgLSA0NTI1PC9hPjwvaDU+ZAIFD2QWDAIDD2QWAgIDDxYCHgdWaXNpYmxlZxYCAgIPZBYCZg9kFgICAQ8WAh8ABRhDb250YWN0IFRlbGVwaG9uZSBOdW1iZXJkAgUPDxYCHwFnZBYIAhIPFgIfAAWcAjxhIHN0eWxlPSJjb2xvcjpncmF5IiBocmVmPSJqYXZhc2NyaXB0OmNhbGVuZGFyX3dpbmRvdz13aW5kb3cub3BlbignY2FsZW5kYXIuYXNweD90YXJnZXRjb250cm9sbmFtZT1jdGwwMF9jcGhjb250ZW50X3R4dHN0YXJ0ZGF0ZScsJ2NhbGVuZGFyX3dpbmRvdycsJ3dpZHRoPTMzMCxoZWlnaHQ9MjUwJyk7Y2FsZW5kYXJfd2luZG93LmZvY3VzKCkiPjxpbWcgc3JjPSJpbWFnZXNcaWNvbnNcY2FsZW5kYXIucG5nIiBhbHQ9IlNlbGVjdCBhIERhdGUiIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgLz48L2E+ZAIVDxYCHwAFmQI8YSBzdHlsZT0iY29sb3I6Z3JheSIgaHJlZj0iamF2YXNjcmlwdDpjYWxlbmRhcl93aW5kb3c9d2luZG93Lm9wZW4oJ2NhbGVuZGFyLmFzcHg/dGFyZ2V0Y29udHJvbG5hbWU9Y3RsMDBfY3BoY29udGVudF90eHRlbmRhdGUnLCdjYWxlbmRhcl93aW5kb3cnLCd3aWR0aD0zMzAsaGVpZ2h0PTI1MCcpO2NhbGVuZGFyX3dpbmRvdy5mb2N1cygpIj48aW1nIHNyYz0iaW1hZ2VzXGljb25zXGNhbGVuZGFyLnBuZyIgYWx0PSJTZWxlY3QgYSBEYXRlIiB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIC8+PC9hPmQCGQ8QZA8W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c3B4P210cj00NTI1ZGQYAQUeX19Db250cm9sc1JlcXVpcmVQb3N0QmFja0tleV9fFgsFIWN0bDAwJGNwaGNvbnRlbnQkY2hrY29tcG9uZW50c18xMAUhY3RsMDAkY3BoY29udGVudCRjaGtjb21wb25lbnRzXzExBSFjdGwwMCRjcGhjb250ZW50JGNoa2NvbXBvbmVudHNfMTIFIWN0bDAwJGNwaGNvbnRlbnQkY2hrY29tcG9uZW50c18xOQUhY3RsMDAkY3BoY29udGVudCRjaGtjb21wb25lbnRzXzIwBSFjdGwwMCRjcGhjb250ZW50JGNoa2NvbXBvbmVudHNfMTcFIWN0bDAwJGNwaGNvbnRlbnQkY2hrY29tcG9uZW50c18xNQUhY3RsMDAkY3BoY29udGVudCRjaGtjb21wb25lbnRzXzEzBSFjdGwwMCRjcGhjb250ZW50JGNoa2NvbXBvbmVudHNfMTQFIWN0bDAwJGNwaGNvbnRlbnQkY2hrY29tcG9uZW50c18xOAUhY3RsMDAkY3BoY29udGVudCRjaGtjb21wb25lbnRzXzE2whqk0l3U1jbKyBKniRJjFwFTEBJC/RDPyFxJnUOlql4=">
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="./testplans_files/WebResource.axd" type="text/javascript"></script>
+
+
+<script src="./testplans_files/ScriptResource.axd" type="text/javascript"></script>
+<script src="./testplans_files/ScriptResource(1).axd" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side framework failed to load.');
+//]]>
+</script>
+
+<script src="./testplans_files/ScriptResource(2).axd" type="text/javascript"></script>
+<script src="./testplans_files/testplan.aspx" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+function WebForm_OnSubmit() {
+if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+return true;
+}
+//]]>
+</script>
+
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="0D529771">
+	<input type="hidden" name="__PREVIOUSPAGE" id="__PREVIOUSPAGE" value="r3v30U9ZMg9lYA_2BtnlaxhGFl843-OaF3kn-GYRY8HJy75a9IhpjRammv4kGdikN7NAsCRGC54oLdRVKTyPR8j7Dk9sZlg0Xs75wye5UYI1">
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="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">
+</div>
+    <div class="top-header">
+        <div class="top-logo">
+            <a href="http://portal.tes.rbsgrp.mde/Portal/Default.aspx">
+                <img src="./testplans_files/rbs-logo.png" alt="RBS Logo">
+            </a><a href="http://portal.tes.rbsgrp.mde/Portal/Default.aspx">
+                <img style="float: right" src="./testplans_files/tesportal.png" alt="TES Logo">
+            </a>
+        </div>
+        <!-- Menu Section -->
+        
+<div class="row-fluid" id="meganav">
+    <div class="span24">
+        <div class="megamenu_wrapper megamenu_light_theme span24">
+            <!-- BEGIN MENU WRAPPER -->
+            <div class="megamenu_container megamenu_rbs">
+                <!-- BEGIN MENU CONTAINER -->
+                <ul class="megamenu">
+                    <!-- BEGIN MENU -->
+                    <li class="menuitem_fullwidth fff menu_right megalist"><a href="http://portal.tes.rbsgrp.mde/Portal/testplan.aspx?mtr=4525#" class="fff menuitem_drop megaheading">
+                        New Customers to TES </a>
+                        <div class="dropdown_5columns">
+                            <!-- Begin columns container -->
+                            <div class="col_one_third firstcolumn">
+                                <h2>
+                                    <a href="http://portal.tes.rbsgrp.mde/Portal/testplan.aspx?mtr=4525#">New Customers to TES</a>
+                                </h2>
+                                <ul class="plus not-top">
+                                    <li><a href="https://rbs.facebook.com/groups/2008805086017080/">TES Facebook at Work</a></li>
+                                </ul>
+                            </div>
+                            <div class="col_one_third">
+                                <h2>
+                                    <a href="http://portal.tes.rbsgrp.mde/Portal/testplan.aspx?mtr=4525#">General Queries</a>
+                                </h2>
+                                <ul class="plus not-top">
+                                    <li><a href="http://11.159.25.223:90/WintelService/Surgery.aspx" target="_blank">Do
+                                        you have a question?</a></li>
+                                    <li><a href="http://portal.tes.rbsgrp.mde/Portal/GeneralFAQLayer.aspx">Frequently Asked Questions</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- End columns container -->
+                    </li>
+                    <!-- End Typography Item -->
+                    <li class="megalist"><a href="http://portal.tes.rbsgrp.mde/Portal/testplan.aspx?mtr=4525#" class="fff menuitem_drop megaheading ">Requests</a>
+                        <!-- Begin Typography Item -->
+                        <div class="dropdown_5columns">
+                            <!-- Begin columns container -->
+                            <div class="col_half firstcolumn">
+                                <h2>
+                                    Requests
+                                </h2>
+                                <ul class="plus not-top">
+                                    <li><a href="https://rbos.service-now.com/myserviceportal?id=sc_cat_item&amp;sys_id=3cfb136fdb42b34c668a365b6896190c" target="_blank">Request environment or change environment</a></li>
+                                    <li><a href="http://11.159.26.221:100/WintelService/RequestEnvironment.aspx" target="_blank">
+                                        Request a Mainframe only environment</a></li>
+                                    <li><a href="http://portal.tes.rbsgrp.mde/Portal/OutageEntry.aspx">TES Outage Request</a> </li>
+                                    <li><a href="https://intranet.rbsres01.net/Technology/DTG/TES/News%20and%20Communications/Forms/AllItems.aspx?RootFolder=%2FTechnology%2FDTG%2FTES%2FNews%20and%20Communications%2FArchived%20Documents%2FExtended%20Incident%20Support&amp;PageView=Shared&amp;FolderCTID=0x012000D72915D8F83052498365A89D57722AD6&amp;View=%7B2D761C7D%2D00FB%2D4654%2D8203%2DE3673D1DC91E%7D" target="_blank">Request for Extended Incident Support</a></li>
+                                </ul>
+                            </div>
+                            <div class="col_half">
+                                <h2>
+                                    Additional Requests
+                                </h2>
+                                <ul class="plus not-top">
+                                    <li><a href="http://portal.tes.rbsgrp.mde/Portal/additionalservices.aspx?requestype=submitpentestingrequest">Submit a Penetration
+                                        Testing Request</a></li>
+                                    <li><a href="http://portal.tes.rbsgrp.mde/Portal/additionalservices.aspx?requestype=submitchildrequest">Submit a Child Environment
+                                        Request</a></li>
+                                    <li><a href="http://portal.tes.rbsgrp.mde/Portal/additionalservices.aspx?requestype=updateprojectinformation">Update Project/Contact
+                                        Information</a></li>
+                                    <li style="display: none;"><a href="http://portal.tes.rbsgrp.mde/Portal/testplan.aspx?mtr=4525#" onclick="showDialog();">Request environment or
+                                        change environment</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- End columns container -->
+                    </li>
+                    <li class="menuitem_fullwidth fff megalist"><a href="http://portal.tes.rbsgrp.mde/Portal/testplan.aspx?mtr=4525#" class="menuitem_drop megaheading">
+                        Wintel Services</a>
+                        <div class="dropdown_fullwidth">
+                            <!-- Begin fullwidth container -->
+                            <div class="col_fullwidth firstcolumn">
+                                <div class="col_one_third firstcolumn">
+                                    <h2>
+                                        Account Services
+                                    </h2>
+                                    <ul class="plus not-top">
+                                        <li><a href="http://11.152.56.14/AccountAD/CreateAccount.aspx">Request a Test Account</a></li>
+                                        <li><a href="http://11.152.56.14/AccountAD/Unlockm01europa.aspx">Unlock a Test Account</a></li>
+                                        <li><a href="http://11.152.56.14/AccountAD/ResetUnlockPassword.aspx">Reset Test Account
+                                            Password</a></li>
+                                        <li><a href="http://11.152.56.14/AccountAD/AmendAccount.aspx">Amend a Test Account</a></li>
+                                    </ul>
+                                </div>
+                                <!--col_half-->
+                                <div class="col_one_third">
+                                    <h2>
+                                        <a href="http://portal.tes.rbsgrp.mde/Portal/testplan.aspx?mtr=4525#">Wintel Devices</a>
+                                    </h2>
+                                    <ul class="plus not-top">
+                                        <li><a href="http://11.152.56.14/AccountAD/Rebootm01europa.aspx">Reboot a Wintel Device</a></li>
+                                        <li><a href="http://portal.tes.rbsgrp.mde/Portal/7daySnapshot.aspx">Request 7 day VM Snapshot</a></li>
+                                        <li><a href="http://portal.tes.rbsgrp.mde/Portal/WintelFAQLayer.aspx">Wintel General Query</a></li>
+                                        <li><a href="http://11.159.25.223:90/WintelService/IPAddressHome.aspx" target="_blank">
+                                            Submit a DNS/IP Request</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End fullwidth container -->
+                    </li>
+                    <!-- End Full Width Item -->
+                    <li class="menuitem_fullwidth fff megalist" style="display: block;"><a href="http://portal.tes.rbsgrp.mde/Portal/testplan.aspx?mtr=4525#" class="menuitem_drop megaheading">
+                        Useful Guides </a>
+                        <div class="dropdown_fullwidth">
+                            <!-- Begin columns container -->
+                            <div class="col_fullwidth firstcolumn">
+                                <div class="col_one_third firstcolumn">
+                                    <h2>
+                                        Guides
+                                    </h2>
+                                    <ul class="plus not-top">
+                                        <li><a target="_blank" href="https://intranet.rbsres01.net/Technology/DTG/TES/Pages/default.aspx">
+                                            Who are we</a></li>
+                                        <li><a target="_blank" href="https://intranet.rbsres01.net/Technology/DTG/TES/News%20and%20Communications/Archived%20Documents/How%20to%20raise%20an%20incident.docx">
+                                            How to raise an incident</a></li>
+                                        <li><a href="http://portal.tes.rbsgrp.mde/Portal/OutageView.aspx">Upcoming Maintenance Window</a></li>
+                                        <li><a target="_blank" href="https://intranet.rbsres01.net/Technology/DTG/TES/Help%20and%20User%20Guides/Maintenance_Window_Guide.pdf">
+                                            Maintenance Window Guide</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col_one_third">
+                                    <h2>
+                                        Others
+                                    </h2>
+                                    <ul class="plus not-top">
+                                        <li><a href="https://intranet.rbsres01.net/Technology/DTG/TES/Help%20and%20User%20Guides/PSE%20Quick%20Ref%20Guide%20v04.pdf" target="_blank">PSE Reference Guide</a></li>
+                                        <li><a href="https://intranet.rbsres01.net/Technology/DTG/TES/Help%20and%20User%20Guides/Pentration%20Testing%20User%20Guide%20-%20v1.pdf" target="_blank">Pentration Testing Process</a></li>
+                                        <li><a target="_blank" href="https://intranet.rbsres01.net/Technology/DTG/TES/Help%20and%20User%20Guides/Master%20-%20Child%20Process%20updated.pdf">
+                                            Master-Child Process</a></li>
+                                        <li><a target="_blank" href="https://intranet.rbsres01.net/Technology/DTG/TES/Help%20and%20User%20Guides/VM%20Purchasing%20Process%202018.pptx">
+                                            Virtual Purchasing and Changes</a></li>
+                                        <li><a target="_blank" href="https://intranet.rbsres01.net/Technology/DTG/TES/Help%20and%20User%20Guides/TES%20Customer%20Guide%20-%20V4.4.pdf">
+                                            TES Customer Guide</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!--col_full firstcolumn-->
+                        </div>
+                        <!--col_full firstcolumn-->
+                    </li>
+                    <!-- End Typography Item -->
+                    <li class="menuitem_fullwidth fff menu_right megalist"><a href="http://portal.tes.rbsgrp.mde/Portal/testplan.aspx?mtr=4525#" class="menuitem_drop megaheading">
+                        Mainframe Governance </a>
+                        <div class="dropdown_fullwidth">
+                            <div class="col_one_third firstcolumn">
+                                <h2>
+                                    Test Plan
+                                </h2>
+                                <ul class="plus not-top">
+                                    <li><a href="http://portal.tes.rbsgrp.mde/Portal/additionalservices.aspx?requestype=submitestplanrequest">Submit a Mainframe
+                                        Test Plan</a></li>
+                                    <li><a href="http://portal.tes.rbsgrp.mde/Portal/testplanschedule.aspx">View the Mainframe Test Plan Schedule</a></li>
+                                    <li><a href="http://portal.tes.rbsgrp.mde/Portal/popup.aspx?p=testplans_guide" target="_blank">View the Mainframe Test Plan
+                                        Guide</a></li>
+                                </ul>
+                            </div>
+                            <div class="col_one_third">
+                                <h2>
+                                    Dashboard
+                                </h2>
+                                <ul class="plus not-top">
+                                    <li><a href="http://11.159.26.222:8085/AMDashboard/Mainframe.aspx" target="_blank">Mainframe
+                                        Dashboard</a></li>
+                                    <li><a href="https://intranet.rbsres01.net/Technology/DTG/TES/Help%20and%20User%20Guides/CICS%20Region%20Process.docx" target="_blank">CICS Region Process</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- End columns container -->
+                    </li>
+                    <!-- End Drop Down Item -->
+                    <li class="menuitem_fullwidth fff menu_right megalist"><a href="http://portal.tes.rbsgrp.mde/Portal/testplan.aspx?mtr=4525#" class="fff menuitem_drop megaheading">
+                        Additional Services</a><!-- Begin Typography Item -->
+                        <div class="dropdown_fullwidth">
+                            <!-- Begin columns container -->
+                            <div class="col_fullwidth firstcolumn">
+                                <!--DIVISIONS & FUNCTIONS-->
+                                <div class="col_one_quarter firstcolumn">
+                                    <h2>
+                                        Services
+                                    </h2>
+                                    <ul class="plus not-top">
+                                        <li><a href="http://portal.tes.rbsgrp.mde/Portal/additionalservices.aspx?requestype=viewassetinformation">View Asset Information</a></li>
+                                        <li><a href="http://portal.tes.rbsgrp.mde/Portal/additionalservices.aspx?requestype=updategovernanceinformation">Update
+                                            Test Data Compliance Information</a></li>
+                                        <li><a href="http://slx.web.rbsgrp.net/Content/Passwords/Forms/Form_Unix.aspx?GroupID=4&amp;SubGroup=0" target="_blank">Unix Account Password Resets</a></li>
+                                        <li><a href="http://portal.tes.rbsgrp.mde/Portal/TESChangeAssets.aspx">TES Asset Communicating with Production</a></li>
+                                        <li><a href="http://portal.tes.rbsgrp.mde/Portal/ServerInformationDetails.aspx">View Server Location Information</a></li>
+                                        <li><a href="http://portal.tes.rbsgrp.mde/Portal/TESFeedback.aspx">Please provide Feedback on our Service</a></li>
+                                        <li><a href="http://portal.tes.rbsgrp.mde/Portal/CIODashboardReport.aspx">Environment Dashboard</a></li>
+                                        <li><a href="https://intranet.rbsres01.net/Technology/DTG/TES/Help%20and%20User%20Guides/Open%20and%20closed%20activity%20tracking.xlsx">
+                                            Workstack Tracker</a></li>
+                                        <li><a href="https://intranet.rbsres01.net/Technology/DTG/Management%20Information%20and%20Reporting/Function%20and%20Franchise%20Reports/Recharge%20Reports/Recharge%20Summary%20Report%2022nd%20Sept.xlsx">
+                                            Recharge Summary Report</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!--col_full firstcolumn-->
+                        </div>
+                        <!-- End columns container -->
+                    </li>
+                </ul>
+                <!-- END MENU -->
+            </div>
+            <!-- END MENU CONTAINER -->
+        </div>
+        <!-- END MENU WRAPPER -->
+        <div class="pagecontentclear">
+        </div>
+    </div>
+</div>
+
+    </div>
+    <!-- PAGE HEADER WHICH CONTAINS INSITE RELATED FUNCTIONALITY -->
+    <div id="ctl00_pnlmasterheader">
+	
+        <!-- BODY HEADER -->
+        <table border="0" width="1100px" align="center" style="margin-left: auto; margin-right: auto;
+            border-bottom: 1px solid #dfdfdf; background-color: #f1f4e2; padding: 5px">
+            <tbody><tr>
+                <td>
+                    <div id="ctl00_pnlpageheaderleft">
+		
+                        <h4>TES - Submit a New Test Plan</h4>
+                        <h5 class="alt" style="color:#002469;"><a style="color:#002469;" href="http://portal.tes.rbsgrp.mde/Portal/environment.aspx?mtr=4525">MTR - 4525</a></h5>
+                    
+	</div>
+                </td>
+                <td>
+                    <!-- DISPLAY A ENVIRONMENT RECORD FACILITY -->
+                    <div id="ctl00_pnlpageheaderight" onkeypress="javascript:return WebForm_FireDefaultButton(event, &#39;ctl00_btnview&#39;)">
+		
+                        <table style="font-size: 8pt; float: right;">
+                            <tbody><tr>
+                                <td colspan="2">
+                                    View an Environment Information
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input name="ctl00$search" type="text" value="Enter a search term" id="ctl00_search" class="textbox ui-autocomplete-input" onfocus="this.value=&#39;&#39;" style="width:400px;" autocomplete="off">
+                                    <br>
+                                    <span id="ctl00_lblError" style="color: Red"></span>
+                                    <input type="hidden" name="ctl00$hdnCategory" id="ctl00_hdnCategory">
+                                </td>
+                                <td>
+                                    <input type="submit" name="ctl00$btnview" value="Go" id="ctl00_btnview" class="button">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="font-size: small; color: #7392BD">
+                                    Please click <a href="http://portal.tes.rbsgrp.mde/Portal/environmentprod.aspx" style="color: #7392BD"><b>here</b></a>
+                                    to check Non-TES NMTRs
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    
+	</div>
+                </td>
+            </tr>
+        </tbody></table>
+        <br>
+    
+</div>
+    <!-- PAGE CONTENT WHICH IS POPULATED BY CHILD PAGES -->
+    
+    <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$cphcontent$ScriptManager1', 'aspnetForm', [], [], [], 90, 'ctl00');
+//]]>
+</script>
+
+    <div id="page">
+        <div class="left">
+            <!-- STEP 1 - CONTACT INFORMATION -->
+            <div id="ctl00_cphcontent_pnltestingcontact" class="df">
+	
+                <h4 class="rbsblue">
+                    Contact Information</h4>
+                <p style="color: gray">
+                    Please provide information which will allow us to contact you if there are any issues
+                    with your planned testing or if any system issues occur during the testing window
+                    which impacts your testing.</p>
+                <br>
+                <table style="width: 600px;">
+                    <tbody><tr>
+                        <td style="width: 200px;">
+                            Main Contact for this Plan
+                        </td>
+                        <td>
+                            <select name="ctl00$cphcontent$ddlmaincontact" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$cphcontent$ddlmaincontact\&#39;,\&#39;\&#39;)&#39;, 0)" id="ctl00_cphcontent_ddlmaincontact" class="ddl" style="width:220px;">
+		<option value=""></option>
+		<option selected="selected" value="named individual">Named Individual</option>
+
+	</select>
+                        </td>
+                    </tr>
+                </tbody></table>
+                <table id="ctl00_cphcontent_tblcontactinformation" style="width: 600px;">
+		<tbody><tr>
+			<td style="width: 200px;">
+                            Contact Name
+                        </td>
+			<td>
+                            <input name="ctl00$cphcontent$txtcontactname" type="text" maxlength="100" id="ctl00_cphcontent_txtcontactname" class="textbox" style="width:150px;">
+                        </td>
+		</tr>
+		<tr>
+			<td>
+                            Contact RACFID
+                        </td>
+			<td>
+                            <input name="ctl00$cphcontent$txtcontactracfid" type="text" maxlength="50" id="ctl00_cphcontent_txtcontactracfid" class="textbox" style="width:150px;">
+                        </td>
+		</tr>
+		<tr>
+			<td>
+                            Contact Telephone Number
+                        </td>
+			<td>
+                            <input name="ctl00$cphcontent$txtcontactelephonenumber" type="text" maxlength="30" id="ctl00_cphcontent_txtcontactelephonenumber" class="textbox" style="width:150px;">
+                            <span id="ctl00_cphcontent_RegularExpressionValidator7" class="span" style="color:Red;display:none;">Invalid Telephone Number</span>
+                        </td>
+		</tr>
+		<tr>
+			<td style="width: 200px;">
+                            Secondary Contact Name
+                        </td>
+			<td>
+                            <input name="ctl00$cphcontent$txtSecondaryContactName" type="text" maxlength="100" id="ctl00_cphcontent_txtSecondaryContactName" class="textbox" style="width:150px;">
+                            <span id="ctl00_cphcontent_RequiredFieldValidator3" class="span" style="color:Red;display:none;">Please Enter Your Contact Name.</span>
+                            <span id="ctl00_cphcontent_cvContactName" class="span" style="color:Red;display:none;">Please provide different contact name.</span>
+                        </td>
+		</tr>
+		<tr>
+			<td>
+                            Secondary Contact RACFID
+                        </td>
+			<td>
+                            <input name="ctl00$cphcontent$txtSecondaryContactRacfId" type="text" maxlength="50" id="ctl00_cphcontent_txtSecondaryContactRacfId" class="textbox" style="width:150px;">
+                            <span id="ctl00_cphcontent_RequiredFieldValidator4" class="span" style="color:Red;display:none;">Please Enter Your RACF ID.</span>
+                            <span id="ctl00_cphcontent_cvRACF" class="span" style="color:Red;display:none;">Please provide different Racf id.</span>
+                        </td>
+		</tr>
+		<tr>
+			<td>
+                            Secondry Contact Telephone
+                        </td>
+			<td>
+                            <input name="ctl00$cphcontent$txtSecondaryContactPhone" type="text" maxlength="30" id="ctl00_cphcontent_txtSecondaryContactPhone" class="textbox" style="width:150px;">
+                            <span id="ctl00_cphcontent_RequiredFieldValidator6" class="span" style="color:Red;display:none;">Please Enter Your Telephone Number.</span>
+                            <span id="ctl00_cphcontent_RegularExpressionValidator2" class="span" style="color:Red;display:none;">Invalid Telephone Number</span>
+                        </td>
+		</tr>
+	</tbody></table>
+	
+                
+            
+</div>
+            <br>
+            <!-- STEP 2 - SCHEDULED DATE AND TIMES -->
+            <div id="ctl00_cphcontent_pnltestingdates" class="df">
+	
+                <h4 class="rbsblue">
+                    Testing Schedule</h4>
+                <p style="color: gray">
+                    Please enter the Date Range and the Start Time and End Time for each day of the
+                    schedule.</p>
+                <br>
+                <table style="width: 650px;">
+                    <tbody><tr>
+                        <td style="width: 200px;">
+                            Frequency
+                        </td>
+                        <td>
+                            <select name="ctl00$cphcontent$ddlfrequency" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$cphcontent$ddlfrequency\&#39;,\&#39;\&#39;)&#39;, 0)" id="ctl00_cphcontent_ddlfrequency" class="ddl" style="width:79px;">
+		<option selected="selected" value=""></option>
+		<option value="Daily">Daily</option>
+		<option value="Weekly">Weekly</option>
+
+	</select>
+                            <span disabled="disabled"><input id="ctl00_cphcontent_chkfrequency_daily_mon" type="checkbox" name="ctl00$cphcontent$chkfrequency_daily_mon" disabled="disabled"><label for="ctl00_cphcontent_chkfrequency_daily_mon">Mon</label></span>
+                            <span disabled="disabled"><input id="ctl00_cphcontent_chkfrequency_daily_tue" type="checkbox" name="ctl00$cphcontent$chkfrequency_daily_tue" disabled="disabled"><label for="ctl00_cphcontent_chkfrequency_daily_tue">Tue</label></span>
+                            <span disabled="disabled"><input id="ctl00_cphcontent_chkfrequency_daily_wed" type="checkbox" name="ctl00$cphcontent$chkfrequency_daily_wed" disabled="disabled"><label for="ctl00_cphcontent_chkfrequency_daily_wed">Wed</label></span>
+                            <span disabled="disabled"><input id="ctl00_cphcontent_chkfrequency_daily_thu" type="checkbox" name="ctl00$cphcontent$chkfrequency_daily_thu" disabled="disabled"><label for="ctl00_cphcontent_chkfrequency_daily_thu">Thu</label></span>
+                            <span disabled="disabled"><input id="ctl00_cphcontent_chkfrequency_daily_fri" type="checkbox" name="ctl00$cphcontent$chkfrequency_daily_fri" disabled="disabled"><label for="ctl00_cphcontent_chkfrequency_daily_fri">Fri</label></span>
+                            <span disabled="disabled"><input id="ctl00_cphcontent_chkfrequency_daily_sat" type="checkbox" name="ctl00$cphcontent$chkfrequency_daily_sat" disabled="disabled"><label for="ctl00_cphcontent_chkfrequency_daily_sat">Sat</label></span>
+                            <span disabled="disabled"><input id="ctl00_cphcontent_chkfrequency_daily_sun" type="checkbox" name="ctl00$cphcontent$chkfrequency_daily_sun" disabled="disabled"><label for="ctl00_cphcontent_chkfrequency_daily_sun">Sun</label></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Starting (dd/mm/yyyy)
+                        </td>
+                        <td>
+                            <input name="ctl00$cphcontent$txtstartdate" type="text" maxlength="10" id="ctl00_cphcontent_txtstartdate" class="textbox" style="width:70px;margin-right: 3px;"><a style="color:gray" href="javascript:calendar_window=window.open(&#39;calendar.aspx?targetcontrolname=ctl00_cphcontent_txtstartdate&#39;,&#39;calendar_window&#39;,&#39;width=330,height=250&#39;);calendar_window.focus()"><img src="./testplans_files/calendar.png" alt="Select a Date" width="16" height="16"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Completing (dd/mm/yyyy)
+                        </td>
+                        <td>
+                            <input name="ctl00$cphcontent$txtendate" type="text" maxlength="10" id="ctl00_cphcontent_txtendate" class="textbox" style="width:70px;margin-right: 3px;"><a style="color:gray" href="javascript:calendar_window=window.open(&#39;calendar.aspx?targetcontrolname=ctl00_cphcontent_txtendate&#39;,&#39;calendar_window&#39;,&#39;width=330,height=250&#39;);calendar_window.focus()"><img src="./testplans_files/calendar.png" alt="Select a Date" width="16" height="16"></a>
+                            <div>
+                                <input type="hidden" name="ctl00$cphcontent$hdnEndDatePassed" id="ctl00_cphcontent_hdnEndDatePassed" value="false">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Daily Start Time
+                        </td>
+                        <td>
+                            <select name="ctl00$cphcontent$ddlstartime" id="ctl00_cphcontent_ddlstartime" class="ddl" style="width:79px;">
+		<option selected="selected" value=""></option>
+		<option value="00:00">00:00</option>
+		<option value="01:00">01:00</option>
+		<option value="02:00">02:00</option>
+		<option value="03:00">03:00</option>
+		<option value="04:00">04:00</option>
+		<option value="05:00">05:00</option>
+		<option value="06:00">06:00</option>
+		<option value="07:00">07:00</option>
+		<option value="08:00">08:00</option>
+		<option value="09:00">09:00</option>
+		<option value="10:00">10:00</option>
+		<option value="11:00">11:00</option>
+		<option value="12:00">12:00</option>
+		<option value="13:00">13:00</option>
+		<option value="14:00">14:00</option>
+		<option value="15:00">15:00</option>
+		<option value="16:00">16:00</option>
+		<option value="17:00">17:00</option>
+		<option value="18:00">18:00</option>
+		<option value="19:00">19:00</option>
+		<option value="20:00">20:00</option>
+		<option value="21:00">21:00</option>
+		<option value="22:00">22:00</option>
+		<option value="23:00">23:00</option>
+
+	</select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Daily Finish Time
+                        </td>
+                        <td>
+                            <select name="ctl00$cphcontent$ddlendtime" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$cphcontent$ddlendtime\&#39;,\&#39;\&#39;)&#39;, 0)" id="ctl00_cphcontent_ddlendtime" class="ddl" style="width:79px;">
+		<option value=""></option>
+		<option value="00:00">00:00</option>
+		<option value="01:00">01:00</option>
+		<option value="02:00">02:00</option>
+		<option value="03:00">03:00</option>
+		<option value="04:00">04:00</option>
+		<option value="05:00">05:00</option>
+		<option value="06:00">06:00</option>
+		<option value="07:00">07:00</option>
+		<option value="08:00">08:00</option>
+		<option value="09:00">09:00</option>
+		<option value="10:00">10:00</option>
+		<option value="11:00">11:00</option>
+		<option value="12:00">12:00</option>
+		<option value="13:00">13:00</option>
+		<option value="14:00">14:00</option>
+		<option value="15:00">15:00</option>
+		<option value="16:00">16:00</option>
+		<option value="17:00">17:00</option>
+		<option value="18:00">18:00</option>
+		<option value="19:00">19:00</option>
+		<option selected="selected" value="20:00">20:00</option>
+		<option value="21:00">21:00</option>
+		<option value="22:00">22:00</option>
+		<option value="23:00">23:00</option>
+
+	</select>
+                        </td>
+                    </tr>
+                </tbody></table>
+                <br>
+                
+                
+            
+</div>
+            <br>
+            <br>
+            <!-- STEP 3 - TYPE OF TESTING AND COMPONENTS -->
+            <div id="ctl00_cphcontent_pnltestingtype" class="df">
+	
+                <h4 class="rbsblue">
+                    Type of Testing</h4>
+                <p style="color: gray">
+                    Please indicate the type of testing being undertaken and the components being tested.</p>
+                <br>
+                <table style="width: 650px;">
+                    <tbody><tr>
+                        <td style="width: 200px;">
+                            Type of Testing
+                        </td>
+                        <td>
+                            <select name="ctl00$cphcontent$ddltestingtype" id="ctl00_cphcontent_ddltestingtype" class="ddl" style="width:220px;">
+		<option selected="selected" value=""></option>
+		<option value="Batch">Batch Processing Tests</option>
+		<option value="Refresh">Environment Refresh</option>
+		<option value="Functional">Functional Testing</option>
+		<option value="Multiple">Multiple Types</option>
+		<option value="Operational">Operational Testing</option>
+		<option value="Performance">Performance Testing</option>
+		<option value="Outage">Planned Maintenance or Outage</option>
+		<option value="General">None of the Above</option>
+
+	</select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Mainframe Testing
+                        </td>
+                        <td>
+                            <select name="ctl00$cphcontent$ddlmainframetesting" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$cphcontent$ddlmainframetesting\&#39;,\&#39;\&#39;)&#39;, 0)" id="ctl00_cphcontent_ddlmainframetesting" style="width:79px;">
+		<option selected="selected" value=""></option>
+		<option value="qplex">QPLEX</option>
+		<option value="mplex">MPLEX</option>
+		<option value="na">NA</option>
+
+	</select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Distributed Testing
+                        </td>
+                        <td>
+                            <select name="ctl00$cphcontent$ddloffhostesting" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$cphcontent$ddloffhostesting\&#39;,\&#39;\&#39;)&#39;, 0)" id="ctl00_cphcontent_ddloffhostesting" style="width:79px;">
+		<option value=""></option>
+		<option selected="selected" value="yes">Yes</option>
+		<option value="no">No</option>
+
+	</select>
+                        </td>
+                    </tr>
+                </tbody></table>
+                
+            
+</div>
+            <br>
+            <br>
+            <!-- STEP 4 OPTIONAL - MAINFRAME COMPONENT DETAIL -->
+            
+            <br>
+            <!-- STEP 5 OPTIONAL - DISTRIBUTED(OFFHOST) COMPONENT DETAIL -->
+            <div id="ctl00_cphcontent_pnltestingcomponentdetail_offhost" class="df">
+	
+                <h4 class="rbsblue">
+                    Distributed Testing Details</h4>
+                <p style="color: gray">
+                    Select the Components which will be used during Testing.</p>
+                <br>
+                <table style="width: 600px;">
+                    <tbody><tr>
+                        <td style="width: 200px" valign="top">
+                            Components
+                        </td>
+                        <td>
+                            <span style="color:White;"><input id="ctl00_cphcontent_chkcomponents_10" type="checkbox" name="ctl00$cphcontent$chkcomponents_10"><label for="ctl00_cphcontent_chkcomponents_10">Unix - AIX</label></span><br><span style="color:White;"><input id="ctl00_cphcontent_chkcomponents_11" type="checkbox" name="ctl00$cphcontent$chkcomponents_11"><label for="ctl00_cphcontent_chkcomponents_11">Unix - HP</label></span><br><span style="color:White;"><input id="ctl00_cphcontent_chkcomponents_12" type="checkbox" name="ctl00$cphcontent$chkcomponents_12"><label for="ctl00_cphcontent_chkcomponents_12">Unix - Solaris</label></span><br><span style="color:White;"><input id="ctl00_cphcontent_chkcomponents_19" type="checkbox" name="ctl00$cphcontent$chkcomponents_19"><label for="ctl00_cphcontent_chkcomponents_19">Firewall</label></span><br><span style="color:White;"><input id="ctl00_cphcontent_chkcomponents_20" type="checkbox" name="ctl00$cphcontent$chkcomponents_20"><label for="ctl00_cphcontent_chkcomponents_20">Telecoms</label></span><br><span style="color:White;"><input id="ctl00_cphcontent_chkcomponents_17" type="checkbox" name="ctl00$cphcontent$chkcomponents_17"><label for="ctl00_cphcontent_chkcomponents_17">Wintel - Citrix</label></span><br><span style="color:White;"><input id="ctl00_cphcontent_chkcomponents_15" type="checkbox" name="ctl00$cphcontent$chkcomponents_15"><label for="ctl00_cphcontent_chkcomponents_15">Wintel - Firewall</label></span><br><span style="color:White;"><input id="ctl00_cphcontent_chkcomponents_13" type="checkbox" name="ctl00$cphcontent$chkcomponents_13"><label for="ctl00_cphcontent_chkcomponents_13">Wintel - Internet</label></span><br><span style="color:White;"><input id="ctl00_cphcontent_chkcomponents_14" type="checkbox" name="ctl00$cphcontent$chkcomponents_14"><label for="ctl00_cphcontent_chkcomponents_14">Wintel - Intranet</label></span><br><span style="color:White;"><input id="ctl00_cphcontent_chkcomponents_18" type="checkbox" name="ctl00$cphcontent$chkcomponents_18"><label for="ctl00_cphcontent_chkcomponents_18">Wintel - Shas</label></span><br><span style="color:White;"><input id="ctl00_cphcontent_chkcomponents_16" type="checkbox" name="ctl00$cphcontent$chkcomponents_16"><label for="ctl00_cphcontent_chkcomponents_16">Wintel - SQL</label></span><br>
+                        </td>
+                    </tr>
+                </tbody></table>
+                
+            
+</div>
+            <br>
+            <!-- STEP 6 - SUBMISSION -->
+            <div id="ctl00_cphcontent_pnlsubmit" class="df" onkeypress="javascript:return WebForm_FireDefaultButton(event, &#39;ctl00_cphcontent_btnsubmit&#39;)">
+	
+                <h4 class="rbsblue">
+                    Submit Test Plan</h4>
+                <p style="color: gray">
+                    Press Submit to submit your plan. This will be reviewed by TES who will contact
+                    you if there are any issues. Once approved, the Test Plan will be visible within
+                    the environment page.</p>
+                <br>
+                <table style="width: 600px;">
+                    <tbody><tr>
+                        <td style="width: 35%">
+                            Your Name (for Audit Purposes)&nbsp;<span class="span">*</span><br>
+                            <span id="ctl00_cphcontent_RequiredFieldValidator5" class="span" style="color:Red;display:none;">Please Enter Your Name.</span>
+                            <span id="ctl00_cphcontent_RegularExpressionValidator3" class="span" style="color:Red;display:none;">Please Enter Correct Value</span>
+                        </td>
+                        <td>
+                            <input name="ctl00$cphcontent$txtsubmittername" type="text" id="ctl00_cphcontent_txtsubmittername" class="textbox" style="width:150px;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Your RACFID&nbsp;<span class="span">*</span><br>
+                            <span id="ctl00_cphcontent_RequiredFieldValidator1" class="span" style="color:Red;display:none;">Please Enter Your RACFID.</span>
+                            <span id="ctl00_cphcontent_RegularExpressionValidator1" class="span" style="color:Red;display:none;">Please Enter Correct Value</span>
+                        </td>
+                        <td>
+                            <input name="ctl00$cphcontent$txtsubmitterracfid" type="text" maxlength="50" id="ctl00_cphcontent_txtsubmitterracfid" class="textbox" style="width:150px;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Reason&nbsp;<span class="span">*</span><br>
+                            <span id="ctl00_cphcontent_RequiredFieldValidator2" class="span" style="color:Red;display:none;">Please Enter Reason.</span>
+                        </td>
+                        <td>
+                            <textarea name="ctl00$cphcontent$txtSubmitterReason" rows="2" cols="20" id="ctl00_cphcontent_txtSubmitterReason" class="textbox" style="font-family:Arial;height:100px;width:85%;"></textarea><br>
+                            <span id="ctl00_cphcontent_Label1" style="font-style:italic;">(Maximum of 500 characters)</span>
+                        </td>
+                    </tr>
+                </tbody></table>
+                <br>
+                <br>
+                
+                <input type="hidden" name="ctl00$cphcontent$HiddenField1" id="ctl00_cphcontent_HiddenField1">
+                <div id="ctl00_cphcontent_pnlPopup" class="modalPopup" style="display: none; position: fixed; z-index: 100001;">
+		
+                    <div class="header">
+                        Confirmation
+                    </div>
+                    <div class="body">
+                        Are you sure you want to submit a Test Plan that requires greater than 1000 MIPS?
+                    </div>
+                    <div class="footer" align="right">
+                        <input type="submit" name="ctl00$cphcontent$btnYes" value="Yes" id="ctl00_cphcontent_btnYes" class="yes">
+                        <input type="submit" name="ctl00$cphcontent$btnNo" value="No" id="ctl00_cphcontent_btnNo" class="no">
+                    </div>
+                
+	</div>
+                <input type="submit" name="ctl00$cphcontent$btnsubmit" value="Submit Test Plan" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$cphcontent$btnsubmit&quot;, &quot;&quot;, true, &quot;DataProtection&quot;, &quot;&quot;, false, false))" id="ctl00_cphcontent_btnsubmit" class="button">
+                
+                <input type="submit" name="ctl00$cphcontent$btncancel" value="Cancel" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$cphcontent$btncancel&quot;, &quot;&quot;, false, &quot;&quot;, &quot;environment.aspx?mtr=4525&quot;, false, false))" id="ctl00_cphcontent_btncancel" class="button">
+                <br>
+                <br>
+                <span id="ctl00_cphcontent_lblmessage" style="color:Red;"></span>
+            
+<div id="ctl00_cphcontent_MPE_backgroundElement" class="modalBackground" style="display: none; position: fixed; left: 0px; top: 0px; z-index: 10000;"></div></div>
+        </div>
+        <div class="right">
+            <br>
+            <h4>
+                Help</h4>
+            <p>
+                Test Plans provide TES with an overall view of the Test Schedule. View our <a href="http://portal.tes.rbsgrp.mde/Portal/popup.aspx?p=testplans_guide" target="_blank">Guide to Test Plans</a> before submitting a Test Plan.</p>
+            <br>
+            <br>
+            <h4>
+                Plan Duration</h4>
+            <p>
+                A single test plan can be for a maximum of 31 days in duration, and can be submitted
+                upto 14 days in advance of the plan starting.</p>
+            <br>
+            <br>
+            <h4>
+                Planned Maintenance</h4>
+            <p>
+                TES have a planned maintenance window every Sunday between 6pm and midnight, UK
+                Time. Please arrange for all testing to be conducted outside of this window to avoid
+                potential impacts to planned testing.</p>
+            <br>
+            <br>
+            <h4>
+                Out-Of-Hours Testing</h4>
+            <p>
+                It is essential to inform TES of all testing which is taking place Out Of Standard
+                UK Working Hours. By understanding Out-Of-Hours testing, we can plan outages with
+                a high degree of confidence in terms of impact to our customers, or inform you when
+                there are incidents which may impact your planned testing.</p>
+            <br>
+            <br>
+            <h4>
+                Mainframe Testing</h4>
+            <p>
+                It is essential to inform TES of all Mainframe based testing so that demand is understood
+                on a 24x7 basis. In all cases, you are required to supply the estimated volume of
+                MIPS that will be used during the period of testing.</p>
+            <br>
+            <br>
+            <h4>
+                Approvals</h4>
+            <p>
+                Test Plans are automatically approved presently. In the coming months, demand for
+                Mainframe based testing will be balanced against supply, and plans will be approved
+                or rejected on this basis.</p>
+            <br>
+            <br>
+            <br>
+        </div>
+    </div>
+
+    <!-- PAGE TRAILER -->
+    <div id="ctl00_pnlmastertrailer">
+	
+        <br>
+        <!-- LEGAL AND COPYRIGHT INFORMATION -->
+        <div style="margin: 0 auto; width: 1100px; padding: 2px">
+            <div class="LinkFooter" style="width: 1100px;">
+                <ul>
+                    <li class="first"><a id="ctl00_ctrlFooterLinks_lnklegal" href="http://www.group.rbsgrp.net/home/footer/legal.asp">
+                        legal</a> </li>
+                    <li><a id="ctl00_ctrlFooterLinks_SLXHyperlink1" href="http://www.group.rbsgrp.net/home/footer/copyright.asp">
+                        copyright information</a> </li>
+                </ul>
+            </div>
+        </div>
+    
+</div>
+    
+<script type="text/javascript">
+//<![CDATA[
+var Page_Validators =  new Array(document.getElementById("ctl00_cphcontent_RegularExpressionValidator7"), document.getElementById("ctl00_cphcontent_RequiredFieldValidator3"), document.getElementById("ctl00_cphcontent_cvContactName"), document.getElementById("ctl00_cphcontent_RequiredFieldValidator4"), document.getElementById("ctl00_cphcontent_cvRACF"), document.getElementById("ctl00_cphcontent_RequiredFieldValidator6"), document.getElementById("ctl00_cphcontent_RegularExpressionValidator2"), document.getElementById("ctl00_cphcontent_RequiredFieldValidator5"), document.getElementById("ctl00_cphcontent_RegularExpressionValidator3"), document.getElementById("ctl00_cphcontent_RequiredFieldValidator1"), document.getElementById("ctl00_cphcontent_RegularExpressionValidator1"), document.getElementById("ctl00_cphcontent_RequiredFieldValidator2"));
+//]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+var ctl00_cphcontent_RegularExpressionValidator7 = document.all ? document.all["ctl00_cphcontent_RegularExpressionValidator7"] : document.getElementById("ctl00_cphcontent_RegularExpressionValidator7");
+ctl00_cphcontent_RegularExpressionValidator7.controltovalidate = "ctl00_cphcontent_txtcontactelephonenumber";
+ctl00_cphcontent_RegularExpressionValidator7.errormessage = "Invalid Telephone Number";
+ctl00_cphcontent_RegularExpressionValidator7.display = "Dynamic";
+ctl00_cphcontent_RegularExpressionValidator7.validationGroup = "DataProtection";
+ctl00_cphcontent_RegularExpressionValidator7.evaluationfunction = "RegularExpressionValidatorEvaluateIsValid";
+ctl00_cphcontent_RegularExpressionValidator7.validationexpression = "[0-9 +]+";
+var ctl00_cphcontent_RequiredFieldValidator3 = document.all ? document.all["ctl00_cphcontent_RequiredFieldValidator3"] : document.getElementById("ctl00_cphcontent_RequiredFieldValidator3");
+ctl00_cphcontent_RequiredFieldValidator3.controltovalidate = "ctl00_cphcontent_txtSecondaryContactName";
+ctl00_cphcontent_RequiredFieldValidator3.errormessage = "Please Enter Your Contact Name.";
+ctl00_cphcontent_RequiredFieldValidator3.display = "Dynamic";
+ctl00_cphcontent_RequiredFieldValidator3.validationGroup = "DataProtection";
+ctl00_cphcontent_RequiredFieldValidator3.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl00_cphcontent_RequiredFieldValidator3.initialvalue = "";
+var ctl00_cphcontent_cvContactName = document.all ? document.all["ctl00_cphcontent_cvContactName"] : document.getElementById("ctl00_cphcontent_cvContactName");
+ctl00_cphcontent_cvContactName.controltovalidate = "ctl00_cphcontent_txtSecondaryContactName";
+ctl00_cphcontent_cvContactName.errormessage = "Please provide different contact name.";
+ctl00_cphcontent_cvContactName.display = "Dynamic";
+ctl00_cphcontent_cvContactName.validationGroup = "DataProtection";
+ctl00_cphcontent_cvContactName.evaluationfunction = "CustomValidatorEvaluateIsValid";
+ctl00_cphcontent_cvContactName.clientvalidationfunction = "validateContactName";
+ctl00_cphcontent_cvContactName.validateemptytext = "true";
+var ctl00_cphcontent_RequiredFieldValidator4 = document.all ? document.all["ctl00_cphcontent_RequiredFieldValidator4"] : document.getElementById("ctl00_cphcontent_RequiredFieldValidator4");
+ctl00_cphcontent_RequiredFieldValidator4.controltovalidate = "ctl00_cphcontent_txtSecondaryContactRacfId";
+ctl00_cphcontent_RequiredFieldValidator4.errormessage = "Please Enter Your RACF ID.";
+ctl00_cphcontent_RequiredFieldValidator4.display = "Dynamic";
+ctl00_cphcontent_RequiredFieldValidator4.validationGroup = "DataProtection";
+ctl00_cphcontent_RequiredFieldValidator4.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl00_cphcontent_RequiredFieldValidator4.initialvalue = "";
+var ctl00_cphcontent_cvRACF = document.all ? document.all["ctl00_cphcontent_cvRACF"] : document.getElementById("ctl00_cphcontent_cvRACF");
+ctl00_cphcontent_cvRACF.controltovalidate = "ctl00_cphcontent_txtSecondaryContactRacfId";
+ctl00_cphcontent_cvRACF.errormessage = "Please provide different Racf id.";
+ctl00_cphcontent_cvRACF.display = "Dynamic";
+ctl00_cphcontent_cvRACF.validationGroup = "DataProtection";
+ctl00_cphcontent_cvRACF.evaluationfunction = "CustomValidatorEvaluateIsValid";
+ctl00_cphcontent_cvRACF.clientvalidationfunction = "validateRacfId";
+ctl00_cphcontent_cvRACF.validateemptytext = "true";
+var ctl00_cphcontent_RequiredFieldValidator6 = document.all ? document.all["ctl00_cphcontent_RequiredFieldValidator6"] : document.getElementById("ctl00_cphcontent_RequiredFieldValidator6");
+ctl00_cphcontent_RequiredFieldValidator6.controltovalidate = "ctl00_cphcontent_txtSecondaryContactPhone";
+ctl00_cphcontent_RequiredFieldValidator6.errormessage = "Please Enter Your Telephone Number.";
+ctl00_cphcontent_RequiredFieldValidator6.display = "Dynamic";
+ctl00_cphcontent_RequiredFieldValidator6.validationGroup = "DataProtection";
+ctl00_cphcontent_RequiredFieldValidator6.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl00_cphcontent_RequiredFieldValidator6.initialvalue = "";
+var ctl00_cphcontent_RegularExpressionValidator2 = document.all ? document.all["ctl00_cphcontent_RegularExpressionValidator2"] : document.getElementById("ctl00_cphcontent_RegularExpressionValidator2");
+ctl00_cphcontent_RegularExpressionValidator2.controltovalidate = "ctl00_cphcontent_txtSecondaryContactPhone";
+ctl00_cphcontent_RegularExpressionValidator2.errormessage = "Invalid Telephone Number";
+ctl00_cphcontent_RegularExpressionValidator2.display = "Dynamic";
+ctl00_cphcontent_RegularExpressionValidator2.validationGroup = "DataProtection";
+ctl00_cphcontent_RegularExpressionValidator2.evaluationfunction = "RegularExpressionValidatorEvaluateIsValid";
+ctl00_cphcontent_RegularExpressionValidator2.validationexpression = "[0-9 +]+";
+var ctl00_cphcontent_RequiredFieldValidator5 = document.all ? document.all["ctl00_cphcontent_RequiredFieldValidator5"] : document.getElementById("ctl00_cphcontent_RequiredFieldValidator5");
+ctl00_cphcontent_RequiredFieldValidator5.controltovalidate = "ctl00_cphcontent_txtsubmittername";
+ctl00_cphcontent_RequiredFieldValidator5.errormessage = "Please Enter Your Name.";
+ctl00_cphcontent_RequiredFieldValidator5.display = "Dynamic";
+ctl00_cphcontent_RequiredFieldValidator5.validationGroup = "DataProtection";
+ctl00_cphcontent_RequiredFieldValidator5.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl00_cphcontent_RequiredFieldValidator5.initialvalue = "";
+var ctl00_cphcontent_RegularExpressionValidator3 = document.all ? document.all["ctl00_cphcontent_RegularExpressionValidator3"] : document.getElementById("ctl00_cphcontent_RegularExpressionValidator3");
+ctl00_cphcontent_RegularExpressionValidator3.controltovalidate = "ctl00_cphcontent_txtsubmittername";
+ctl00_cphcontent_RegularExpressionValidator3.errormessage = "Please Enter Correct Value";
+ctl00_cphcontent_RegularExpressionValidator3.display = "Dynamic";
+ctl00_cphcontent_RegularExpressionValidator3.validationGroup = "DataProtection";
+ctl00_cphcontent_RegularExpressionValidator3.evaluationfunction = "RegularExpressionValidatorEvaluateIsValid";
+ctl00_cphcontent_RegularExpressionValidator3.validationexpression = "[a-zA-Z0-9 !@#$%^&*()_\\-{}|\\:;<,.>?/]*";
+var ctl00_cphcontent_RequiredFieldValidator1 = document.all ? document.all["ctl00_cphcontent_RequiredFieldValidator1"] : document.getElementById("ctl00_cphcontent_RequiredFieldValidator1");
+ctl00_cphcontent_RequiredFieldValidator1.controltovalidate = "ctl00_cphcontent_txtsubmitterracfid";
+ctl00_cphcontent_RequiredFieldValidator1.errormessage = "Please Enter Your RACFID.";
+ctl00_cphcontent_RequiredFieldValidator1.display = "Dynamic";
+ctl00_cphcontent_RequiredFieldValidator1.validationGroup = "DataProtection";
+ctl00_cphcontent_RequiredFieldValidator1.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl00_cphcontent_RequiredFieldValidator1.initialvalue = "";
+var ctl00_cphcontent_RegularExpressionValidator1 = document.all ? document.all["ctl00_cphcontent_RegularExpressionValidator1"] : document.getElementById("ctl00_cphcontent_RegularExpressionValidator1");
+ctl00_cphcontent_RegularExpressionValidator1.controltovalidate = "ctl00_cphcontent_txtsubmitterracfid";
+ctl00_cphcontent_RegularExpressionValidator1.errormessage = "Please Enter Correct Value";
+ctl00_cphcontent_RegularExpressionValidator1.display = "Dynamic";
+ctl00_cphcontent_RegularExpressionValidator1.validationGroup = "DataProtection";
+ctl00_cphcontent_RegularExpressionValidator1.evaluationfunction = "RegularExpressionValidatorEvaluateIsValid";
+ctl00_cphcontent_RegularExpressionValidator1.validationexpression = "[a-zA-Z0-9 !@#$%^&*()_\\-{}|\\:;<,.>?/]*";
+var ctl00_cphcontent_RequiredFieldValidator2 = document.all ? document.all["ctl00_cphcontent_RequiredFieldValidator2"] : document.getElementById("ctl00_cphcontent_RequiredFieldValidator2");
+ctl00_cphcontent_RequiredFieldValidator2.controltovalidate = "ctl00_cphcontent_txtSubmitterReason";
+ctl00_cphcontent_RequiredFieldValidator2.errormessage = "Please Enter Reason.";
+ctl00_cphcontent_RequiredFieldValidator2.display = "Dynamic";
+ctl00_cphcontent_RequiredFieldValidator2.validationGroup = "DataProtection";
+ctl00_cphcontent_RequiredFieldValidator2.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl00_cphcontent_RequiredFieldValidator2.initialvalue = "";
+//]]>
+</script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+(function() {var fn = function() {$get("ctl00_cphcontent_ScriptManager1_HiddenField").value = '';Sys.Application.remove_init(fn);};Sys.Application.add_init(fn);})();
+var Page_ValidationActive = false;
+if (typeof(ValidatorOnLoad) == "function") {
+    ValidatorOnLoad();
+}
+
+function ValidatorOnSubmit() {
+    if (Page_ValidationActive) {
+        return ValidatorCommonOnSubmit();
+    }
+    else {
+        return true;
+    }
+}
+        
+document.getElementById('ctl00_cphcontent_RegularExpressionValidator7').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_cphcontent_RegularExpressionValidator7'));
+}
+
+document.getElementById('ctl00_cphcontent_RequiredFieldValidator3').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_cphcontent_RequiredFieldValidator3'));
+}
+
+document.getElementById('ctl00_cphcontent_cvContactName').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_cphcontent_cvContactName'));
+}
+
+document.getElementById('ctl00_cphcontent_RequiredFieldValidator4').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_cphcontent_RequiredFieldValidator4'));
+}
+
+document.getElementById('ctl00_cphcontent_cvRACF').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_cphcontent_cvRACF'));
+}
+
+document.getElementById('ctl00_cphcontent_RequiredFieldValidator6').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_cphcontent_RequiredFieldValidator6'));
+}
+
+document.getElementById('ctl00_cphcontent_RegularExpressionValidator2').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_cphcontent_RegularExpressionValidator2'));
+}
+
+document.getElementById('ctl00_cphcontent_RequiredFieldValidator5').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_cphcontent_RequiredFieldValidator5'));
+}
+
+document.getElementById('ctl00_cphcontent_RegularExpressionValidator3').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_cphcontent_RegularExpressionValidator3'));
+}
+
+document.getElementById('ctl00_cphcontent_RequiredFieldValidator1').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_cphcontent_RequiredFieldValidator1'));
+}
+
+document.getElementById('ctl00_cphcontent_RegularExpressionValidator1').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_cphcontent_RegularExpressionValidator1'));
+}
+
+document.getElementById('ctl00_cphcontent_RequiredFieldValidator2').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_cphcontent_RequiredFieldValidator2'));
+}
+Sys.Application.add_init(function() {
+    $create(Sys.Extended.UI.ModalPopupBehavior, {"BackgroundCssClass":"modalBackground","CancelControlID":"ctl00_cphcontent_btnNo","PopupControlID":"ctl00_cphcontent_pnlPopup","dynamicServicePath":"/Portal/testplan.aspx","id":"ctl00_cphcontent_MPE"}, null, null, $get("ctl00_cphcontent_HiddenField1"));
+});
+//]]>
+</script>
+</form>
+
+
+<ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul><div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>
